@@ -48,7 +48,7 @@ export default function ContactPage() {
           <div className="space-y-5 text-base">
             <div>
               <h4 className="font-semibold text-[#001F3F] mb-1">📍 Address</h4>
-              <p>No. 25, Palm Grove Avenue, Colombo, Sri Lanka</p>
+              <p>No 176, 177 Jaffna-Kankesanturai Rd, Chunnakam 40000</p>
             </div>
 
             <div>
@@ -57,7 +57,7 @@ export default function ContactPage() {
                 href="tel:+94771234567"
                 className="text-gray-700 hover:text-[#D4AF37] transition-colors"
               >
-                +94 77 123 4567
+                +94 74 218 3333
               </a>
             </div>
 
@@ -73,8 +73,7 @@ export default function ContactPage() {
 
             <div>
               <h4 className="font-semibold text-[#001F3F] mb-1">🕐 Working Hours</h4>
-              <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
-              <p>Sat: 9:00 AM - 1:00 PM</p>
+              <p>Mon - Sat: 9:00 AM - 5:30 PM</p>
             </div>
           </div>
         </motion.div>

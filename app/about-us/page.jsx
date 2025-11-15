@@ -125,7 +125,7 @@ export default function AboutUsPage() {
         </section>
 
         {/* Team Section */}
-        <section className="max-w-7xl mx-auto px-6 py-20">
+        {/* <section className="max-w-7xl mx-auto px-6 py-20">
           <motion.h2
             className="text-3xl font-bold mb-12 text-center text-[#001F3F]"
             initial={{ y: 20, opacity: 0 }}
@@ -181,7 +181,7 @@ export default function AboutUsPage() {
               </motion.div>
             ))}
           </div>
-        </section>
+        </section> */}
       </main>
 
       <FooterSolid />

@@ -6,28 +6,33 @@ import { motion, AnimatePresence } from "framer-motion";
 const NAVY = "#001F3F";
 const GOLD = "#D4AF37";
 
+// NEW FIRST SLIDE ADDED
 const slides = [
+  {
+    title: "Visa Consultation by Experts",
+    desc: "Get professional guidance and a smooth process for all your visa needs.",
+    img: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1170&q=80",
+  },
   {
     title: "Explore Sri Lanka with VKR International",
     desc: "Your trusted partner for visa consultancy, curated tour packages, and seamless bus ticket booking.",
-    img: "https://plus.unsplash.com/premium_photo-1726869782115-1550d3e5151c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+    img: "https://plus.unsplash.com/premium_photo-1726869782115-1550d3e5151c?auto=format&fit=crop&q=80&w=1170",
   },
   {
     title: "Discover Paradise by Bus",
     desc: "Book comfortable bus tickets and enjoy scenic journeys across Sri Lanka.",
-    img: "https://images.unsplash.com/photo-1759674406719-baa59167036b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1026",
+    img: "https://images.unsplash.com/photo-1759674406719-baa59167036b?auto=format&fit=crop&q=80&w=1026",
   },
   {
     title: "Tailored Tour Packages",
     desc: "Experience curated tours designed for your convenience and pleasure.",
-    img: "https://plus.unsplash.com/premium_photo-1726863120414-4bc4ee123054?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+    img: "https://plus.unsplash.com/premium_photo-1726863120414-4bc4ee123054?auto=format&fit=crop&q=80&w=1170",
   },
 ];
 
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
 
-  // Auto-slide every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -53,13 +58,11 @@ export default function HeroCarousel() {
         )}
       </AnimatePresence>
 
-      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#001F3F]/80 via-[#001F3F]/60 to-[#001F3F]/80"></div>
 
-      {/* Content */}
       <div className="relative z-10 text-center text-white px-6 max-w-3xl">
         <motion.h1
-          key={current} // animate on slide change
+          key={current}
           className="text-4xl md:text-6xl font-extrabold leading-tight mb-4"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -85,24 +88,17 @@ export default function HeroCarousel() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
+          {/* UPDATED BUTTON */}
           <a
-            href="/visa-consultation"
-            className="px-8 py-3 rounded-full font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105"
-            style={{ backgroundColor: NAVY }}
+            href="/services/book"
+            className="px-8 py-3 rounded-full font-semibold border transition-all duration-300 hover:bg-[#D4AF37] hover:text-white"
+            style={{ borderColor: GOLD}}
           >
             Book Appointment
-          </a>
-          <a
-            href="#"
-            className="px-8 py-3 rounded-full font-semibold border transition-all duration-300 hover:bg-[#D4AF37] hover:text-white"
-            style={{ borderColor: GOLD, color: GOLD }}
-          >
-            View Tours
           </a>
         </motion.div>
       </div>
 
-      {/* Decorative gradient glow */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/10 via-transparent to-transparent"></div>
     </section>
   );

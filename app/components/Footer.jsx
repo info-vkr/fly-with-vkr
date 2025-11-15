@@ -19,7 +19,7 @@ export function Footer() {
         {/* Social Icons */}
         <div className="flex justify-center gap-6 flex-wrap">
           <motion.a
-            href="https://facebook.com/yourpage"
+            href="https://facebook.com/vkr.kajanan"
             target="_blank"
             rel="noopener noreferrer"
             className={`text-gray-200 hover:text-[${logoColor}]`}
@@ -31,7 +31,7 @@ export function Footer() {
           </motion.a>
 
           <motion.a
-            href="https://instagram.com/yourprofile"
+            href="https://www.instagram.com/vkag.ency"
             target="_blank"
             rel="noopener noreferrer"
             className={`text-gray-200 hover:text-[${logoColor}]`}
@@ -43,19 +43,7 @@ export function Footer() {
           </motion.a>
 
           <motion.a
-            href="https://twitter.com/yourprofile"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`text-gray-200 hover:text-[${logoColor}]`}
-            variants={iconVariants}
-            whileHover="hover"
-          >
-            <span className="sr-only">Twitter</span>
-            <FaTwitter className="w-6 h-6" />
-          </motion.a>
-
-          <motion.a
-            href="https://wa.me/yourwhatsappnumber"
+            href="https://wa.me/+94742183333"
             target="_blank"
             rel="noopener noreferrer"
             className={`text-gray-200 hover:text-[${logoColor}]`}
@@ -66,20 +54,9 @@ export function Footer() {
             <FaWhatsapp className="w-6 h-6" />
           </motion.a>
 
-          <motion.a
-            href="https://youtube.com/yourchannel"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`text-gray-200 hover:text-[${logoColor}]`}
-            variants={iconVariants}
-            whileHover="hover"
-          >
-            <span className="sr-only">YouTube</span>
-            <FaYoutube className="w-6 h-6" />
-          </motion.a>
 
           <motion.a
-            href="https://tiktok.com/@yourprofile"
+            href="https://www.tiktok.com/@vkrinternational"
             target="_blank"
             rel="noopener noreferrer"
             className={`text-gray-200 hover:text-[${logoColor}]`}

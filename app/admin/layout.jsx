@@ -19,22 +19,16 @@ export default function AdminLayout({ children }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Token check
-  const token =
-    typeof window !== "undefined" ? localStorage.getItem("adminToken") : null;
-  if (!token && typeof window !== "undefined") {
-    router.push("/admin/login");
-    return null;
-  }
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [packagesOpen, setPackagesOpen] = useState(false);
   const [newsOpen, setNewsOpen] = useState(false);
+  const [testimonialsOpen, setTestimonialsOpen] = useState(false);
 
-  const handleLogout = () => {
-    localStorage.removeItem("adminToken");
-    router.push("/login");
-  };
+const handleLogout = async () => {
+  await fetch("/api/admin/logout");
+  window.location.href = "/login";
+};
+
 
   const routeTitles = {
     "/admin/dashboard": "Dashboard",
@@ -43,7 +37,9 @@ export default function AdminLayout({ children }) {
     "/admin/packages/edit": "Edit Package",
     "/admin/news/viewNews": "View News",
     "/admin/news/addNews": "Add News",
-    "/admin/users": "Users",
+    "/admin/change-password": "Change Password",
+    "/admin/testimonials/viewTestimonials": "View Testimonials",
+    "/admin/testimonials/addTestimonials": "Add Testimonials",
   };
 
   // Determine base path
@@ -140,15 +136,51 @@ export default function AdminLayout({ children }) {
             )}
           </div>
 
-          {/* Users */}
+{/* Testimonial Menu */}
+<div className="">
+  <button
+    onClick={() => setTestimonialsOpen(!testimonialsOpen)}
+    className="flex items-center justify-between w-full text-left text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md px-6 py-3"
+  >
+    <span className="flex items-center gap-3">
+      <FiFileText size={20} /> Testimonials
+    </span>
+    {testimonialsOpen ? <FiChevronUp /> : <FiChevronDown />}
+  </button>
+
+  {testimonialsOpen && (
+    <div className="mt-2 flex flex-col ml-10 space-y-1">
+      <Link
+        href="/admin/testimonials/viewTestimonials"
+        className={`px-2 py-1 rounded ${activeClass(
+          "/admin/testimonials/viewTestimonials"
+        )}`}
+      >
+        View Testimonials
+      </Link>
+
+      <Link
+        href="/admin/testimonials/addTestimonials"
+        className={`px-2 py-1 rounded ${activeClass(
+          "/admin/testimonials/addTestimonials"
+        )}`}
+      >
+        Add Testimonials
+      </Link>
+    </div>
+  )}
+</div>
+
+
           <Link
-            href="/admin/users"
-            className={`flex items-center gap-3 px-6 py-3 ${activeClass(
-              "/admin/users"
-            )}`}
-          >
-            <FiUsers size={20} /> Users
-          </Link>
+  href="/admin/change-password"
+  className={`flex items-center gap-3 px-6 py-3 ${activeClass(
+    "/admin/change-password"
+  )}`}
+>
+  <FiUsers size={20} /> Change Password
+</Link>
+
         </nav>
       </aside>
 
@@ -243,16 +275,52 @@ export default function AdminLayout({ children }) {
                 )}
               </div>
 
-              {/* Users */}
-              <Link
-                href="/admin/users"
-                className={`flex items-center gap-3 px-6 py-3 ${activeClass(
-                  "/admin/users"
-                )}`}
-                onClick={() => setSidebarOpen(false)}
-              >
-                <FiUsers size={20} /> Users
-              </Link>
+              {/* Testimonials */}
+<div className="">
+  <button
+    onClick={() => setTestimonialsOpen(!testimonialsOpen)}
+    className="flex items-center justify-between w-full text-left text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md px-6 py-3"
+  >
+    <span className="flex items-center gap-3">
+      <FiFileText size={20} /> Testimonials
+    </span>
+    {testimonialsOpen ? <FiChevronUp /> : <FiChevronDown />}
+  </button>
+
+  {testimonialsOpen && (
+    <div className="mt-2 flex flex-col ml-10 space-y-1">
+      <Link
+        href="/admin/testimonials/viewTestimonials"
+        className={`px-2 py-1 rounded ${activeClass(
+          "/admin/testimonials/viewTestimonials"
+        )}`}
+        onClick={() => setSidebarOpen(false)}
+      >
+        View Testimonials
+      </Link>
+
+      <Link
+        href="/admin/testimonials/addTestimonials"
+        className={`px-2 py-1 rounded ${activeClass(
+          "/admin/testimonials/addTestimonials"
+        )}`}
+        onClick={() => setSidebarOpen(false)}
+      >
+        Add Testimonials
+      </Link>
+    </div>
+  )}
+</div>
+<Link
+  href="/admin/change-password"
+  className={`flex items-center gap-3 px-6 py-3 ${activeClass(
+    "/admin/change-password"
+  )}`}
+  onClick={() => setSidebarOpen(false)}
+>
+  <FiUsers size={20} /> Change Password
+</Link>
+
             </nav>
           </aside>
         </div>
@@ -273,29 +341,17 @@ export default function AdminLayout({ children }) {
             <h1 className="text-xl font-bold">{pageTitle}</h1>
           </div>
 
-          <div className="flex items-center gap-4">
-            {/* Notification */}
-            <button className="relative hover:bg-blue-500 p-2 rounded-full transition">
-              <FiBell size={20} />
-              <span className="absolute top-0 right-0 inline-block w-2 h-2 bg-red-500 rounded-full"></span>
-            </button>
+<div className="flex items-center gap-4">
+  {/* Modern Logout Link */}
+  <span
+    onClick={handleLogout}
+    className="relative cursor-pointer text-white font-medium after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+  >
+    Logout
+  </span>
+</div>
 
-            {/* Admin Profile */}
-            <div className="flex items-center gap-2 bg-white text-gray-800 px-3 py-1 rounded-full">
-              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
-                A
-              </div>
-              <span>Admin</span>
-            </div>
 
-            {/* Logout */}
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-600 transition px-4 py-1 rounded-full font-semibold"
-            >
-              Logout
-            </button>
-          </div>
         </header>
 
         {/* Center Content */}

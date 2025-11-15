@@ -1,6 +1,6 @@
 import { connectDB } from "@/lib/mongodb";
 import Admin from "@/models/Admin";
-import bcrypt from "bcryptjs";   // USE THIS
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export async function POST(req) {
@@ -24,11 +24,22 @@ export async function POST(req) {
 
     const token = jwt.sign(
       { id: admin._id, email: admin.email },
-      process.env.JWT_SECRET,
+      process.env.ADMIN_JWT_SECRET,
       { expiresIn: "1d" }
     );
 
-    return new Response(JSON.stringify({ token, email: admin.email }), { status: 200 });
+    const response = new Response(
+      JSON.stringify({ message: "Login successful" }),
+      { status: 200 }
+    );
+
+    response.headers.append(
+      "Set-Cookie",
+      `adminToken=${token}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=86400`
+    );
+
+    return response;
+
   } catch (error) {
     console.error(error);
     return new Response(JSON.stringify({ message: "Server error" }), { status: 500 });

@@ -51,15 +51,28 @@ export default function ContactPage() {
               <p>No 176, 177 Jaffna-Kankesanturai Rd, Chunnakam 40000</p>
             </div>
 
-            <div>
-              <h4 className="font-semibold text-[#001F3F] mb-1">📞 Phone</h4>
-              <a
-                href="tel:+94771234567"
-                className="text-gray-700 hover:text-[#D4AF37] transition-colors"
-              >
-                +94 74 218 3333
-              </a>
-            </div>
+<div className="space-y-4">
+  <div>
+    <h4 className="font-semibold text-[#001F3F] mb-1">📞 Phone</h4>
+    <a
+      href="tel:+94742183333"
+      className="text-gray-700 hover:text-[#D4AF37] transition-colors"
+    >
+      +94 74 218 3333
+    </a>
+  </div>
+
+  <div>
+    <h4 className="font-semibold text-[#001F3F] mb-1">☎️ Landline</h4>
+    <a
+      href="tel:0217284284"
+      className="text-gray-700 hover:text-[#D4AF37] transition-colors"
+    >
+      021 728 4284
+    </a>
+  </div>
+</div>
+
 
             <div>
               <h4 className="font-semibold text-[#001F3F] mb-1">✉️ Email</h4>

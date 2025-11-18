@@ -1,8 +1,8 @@
-import { connectToDatabase } from "@/lib/mongodb";
+import { connectDB } from "@/lib/mongodb";
 
 export async function GET() {
   try {
-    await connectToDatabase();
+    await connectDB();
     return Response.json({ success: true, message: "✅ Connected to MongoDB" });
   } catch (error) {
     console.error(error);

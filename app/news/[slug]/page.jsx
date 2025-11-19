@@ -120,12 +120,12 @@ export default async function NewsDetail({ params }) {
             href="tel:+94123456789"
             className="hover:underline hover:text-[#001F3F] transition-colors"
           >
-            +94 123 456 789
+            +94 77 055 1735
           </a>
         </li>
         <li className="flex items-center gap-3">
           <MapPin className="w-5 h-5 text-[#D4AF37]" />
-          <span>Colombo, Sri Lanka</span>
+          <span>No176, 177 Jaffna-Kankesanturai Rd, Chunnakam 40000</span>
         </li>
       </ul>
     </div>

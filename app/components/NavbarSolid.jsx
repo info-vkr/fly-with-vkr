@@ -140,7 +140,7 @@ export default function NavbarSolid() {
                   { name: "About Us", link: "/about-us" },
                   { name: "Services", link: "/services" },
                   { name: "Visa Categories", link: "/visa-categories" },
-                  { name: "Contact", link: "#contact" },
+                  { name: "Contact", link: "/contact-us" },
                 ].map((item) => (
                   <li key={item.name}>
                     <Link

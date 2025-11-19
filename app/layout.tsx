@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fly VKR",
-  description: "Fly with VKR International",
+  title: "VKR International | Visa & Travel Services",
+  description: "Professional visa assistance, travel planning, and immigration support.",
   icons:{
     icon:['/favicon.ico?v=4'],
     apple:['/apple-touch-icon.png?v=4'],
